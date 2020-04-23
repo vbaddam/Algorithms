@@ -1,0 +1,188 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amscd, amsthm, amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{mathtools}
+
+\newcommand\Myperm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\Mycomb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+
+
+
+
+ 
+
+\oddsidemargin 0pt
+\evensidemargin 0pt
+\marginparwidth 40pt
+\marginparsep 10pt
+\topmargin -20pt
+\headsep 10pt
+\textheight 8.7in
+\textwidth 6.65in
+\linespread{1.2}
+
+\title{Home work 1}
+\author{Vasanth Reddy Baddam}
+
+
+
+
+%\author{Homework by Vasanth Reddy}
+\date{02/11/2020}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\rr}{\mathbb{R}}
+
+\newcommand{\al}{\alpha}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\aff}{aff}
+
+\begin{document}
+
+\maketitle
+I pledge that this test/assignment has been completed in compliance with the Graduate Honor Code and
+that I have neither given nor received any unauthorized aid on this test/assignment\\
+\textbf{Name: } Vasanth Reddy Baddam\\
+\textbf{Signature: } VB\\
+
+\textbf{Q1}.\\
+a). F\\
+b). T\\
+c). F\\
+d). F\\
+e). T\\
+f). F \\
+g). F\\
+h). T\\
+i). T\\
+j). F\\
+\hline
+\vspace{5mm}
+\textbf{Q2.}\\
+\hspace*{3ex}Using recursive method..,\\
+$$T(n=2 T\left(\frac{n}{2}\right)+\frac{n}{\log n}$$
+$$T(n)=2\left[2 T\left(\frac{n}{4}\right)+\frac{\left(\frac{n}{2}\right)}{\log \left(\frac{n}{2}\right)}\right]+\frac{n}{\log n}$$
+$$(T(n)=4 T\left(\frac{n}{4}\right)+\frac{n}{\log \frac{n}{2}}+\frac{n}{\log n}$$
+$$T(n)=4\left[2 T\left(\frac{n}{8}\right)+\frac{\left(\frac{n}{4}\right)}{\log \left(\frac{n}{4}\right)}\right]+\frac{n}{\log \frac{n}{2}}+\frac{n}{\log n}$$
+$$T(n)=8 T\left(\frac{n}{8}\right)+\frac{n}{log \frac{n}{4}}+\frac{n}{log \frac{n}{2}}+\frac{n}{log n}$$
+$$T(n)=2^{k} T\left(\frac{n}{2^{k}}\right)+\frac{n}{\log \frac{n}{2^{k-1}}}+\cdots$$
+$$T(n)=2^{k} T\left(\frac{n}{2^{k}}\right)+\sum_{i=0}^{k-1} \frac{n}{1og_{}^{\frac{n}{2^{i}}}}$$
+$$T(n)={2^{k} T\left(\frac{n}{2^{k}}\right)+\sum_{i=0}^{k-1} \frac{n}{log^{n}-i}}$$
+As this goes on, $\frac{n}{2^{k}} = 1 $
+$$n = 2^{k}$$
+$$T(n)=n T(1)+\sum_{i=0}^{log^{n} - 1} \frac{n}{\log^{n}-i}$$
+$$T(n)=n\left[T(1)+\sum_{i=0}^{\log^{n} - 1} \frac{n}{\log ^{n}-i}\right]$$
+$$T(n)= n[1+\log (\log (n))]$$
+$$T(n) = \Theta(n\log(\log(n))$$
+$$A = n\log(\log(n))$$
+\hline
+
+\vspace{5mm}
+\textbf{Q3.}\\
+\textbf{a).} \\
+$$T(n)=3 T\left(\frac{n}{2}\right)+n \log n$$
+$$
+\begin{aligned}
+a=3, & b=2, f(n)=n \log n \\
+n^{\log _{b}^{a}} &=n^{log_{2}^{3}} \\
+n^{\log _{2}^{3}} &=n^{1.58}>n \log n
+\end{aligned}
+$$
+Therefore, \(\quad T(n)=\Theta\left(n^{\log _{b} a}\right)=\Theta\left(n^{\log _{2}^{3}}\right)\)
+
+\textbf{b).}\\
+$$T(n)=2 T\left(\frac{n}{4}\right)+\sqrt{n}$$
+$$a=2, \quad b=4, \quad f(n)=\sqrt{n}$$
+$$
+n^{\log _{b} a}=n^{\log _{4}^{2}}
+$$
+$$
+n^{log_{4}^{2}}=n^{\frac{1}{2} \log _{2}^{2}}=\sqrt{n}=f(n)
+$$
+Therefore, \(\quad T(n)=\Theta\left(n^{\log _{b} a} \log n\right)\)
+$$
+T(n)=\Theta(\sqrt{n} \log n)
+$$
+\hline
+\vspace{5mm}
+\textbf{Q4.}\\
+\textbf{a).} \\
+\hspace*{7ex} Let \(X\) be the random variable that the number of bins are empty. Given that \(n\) bathe are tossed into \(n\) bins and each toss is not dependent to each other.
+$$
+\begin{array}{l}
+{E[X]=E\left[\sum_{i=1}^{n} X_{i}\right]} \\
+{E[X]=E\left[X_{1}+X_{2}+.....+X_{n}\right]}
+\end{array}
+$$
+Where $X_i$ is the variable such that bin i empty. $X_i$ is 1 if bin is empty else 0.
+
+$$E[X_i] = 1*p(X_i \text{is empty}) + 0*p(X_i \text{is not empty})$$
+$$E[X_i] = p(X_i \text{is empty})$$
+$$E[X] = E[X_1] + E[X_2] + E[X_3] + .... + E[X_n]$$
+
+As, $n$ balls goes into $n-1$ bins and keeping the bin $X_i$ empty. The probability is given as
+$$
+p(X)=\left(\frac{n-1}{n}\right)^{n}
+$$
+
+$$E[X]=\left(\frac{n-1}{n}\right)^{n}+\left(\frac{n-1}{n}\right)^{n}+\ldots \quad n times $$
+$$
+E[X] = n\left(\frac{n-1}{n}\right)^{n}
+$$
+\textbf{b).} \\
+\hspace*{7ex} Let $X$ be the random variable with the number of bins having exactly one ball and $X_i$ is the event such that bin $i$ is having exactly one ball. \\
+$$
+\begin{array}{l}
+{E[X]=E\left[\sum_{i=1}^{n} X_{i}\right]} \\
+{E[X]=E\left[X_{1}+X_{2}+.....+X_{n}\right]}
+\end{array}
+$$
+
+$$E[X_i] = 1*p(X_i \text{is exactly having one ball})$$
+
+As exactly one ball is in bin $X_i$ and remaining $n-1$ balls goes into $n-1$ bins. The probability is given by\\
+$$p(X_i) = \frac{(n-1)^{(n-1)}*\Mycomb{1}}{n^{n}}$$
+
+$$E[X] = \frac{(n-1)^{(n-1)}*\Mycomb{1}}{n^{n}} + \frac{(n-1)^{(n-1)}*\Mycomb{1}}{n^{n}} + ..... n \text{times}$$
+
+$$E[X] = n * \frac{(n-1)^{(n-1)}*n}{n^{n}}$$
+$$E[X] =  \frac{(n-1)^{(n-1)}}{n^{n-2}}$$
+\hline
+\vspace{7mm}
+\textbf{Q5.}\\
+Min-Heapify and Max-Heapify has the same time complexity of \mathcal{O}(\log n)
+
+\begin{document}
+\begin{algorithm}
+\caption{Min-Heapify}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{\textsc{Min-Heapify}(\textit{A,i})}{}
+\State $l$ = \textsc{Left}(\textit{i})
+\State \textit{r} = \textsc{Left}(\textit{i})
+\State \textit{n} = \textit{A.heap-size}
+\If {$l \leq n $ and $A[l] < A[i]$} $smallest = l$
+\EndIf
+\State \textbf{else} $smallest = i$
+\If {$r \leq n $ and $A[r] < A[i]$} $smallest = r$
+\EndIf
+\If {$smallest \neq i$}
+\State Swap $A[i]$ and $A[smallest]$
+\State \textsc{Min-Heapify}(\textit{A,i})
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\end{document}
+
+
+\end{document}
